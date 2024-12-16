@@ -1,0 +1,64 @@
+
+bin/startup.bin:     file format binary
+
+
+Disassembly of section .data:
+
+00000000 <.data>:
+   0:	e10f0000 	mrs	r0, CPSR
+   4:	e3c0001f 	bic	r0, r0, #31
+   8:	e3800013 	orr	r0, r0, #19
+   c:	e129f000 	msr	CPSR_fc, r0
+  10:	eb00001a 	bl	0x80
+  14:	eb00001e 	bl	0x94
+  18:	e3a04000 	mov	r4, #0
+  1c:	eb000004 	bl	0x34
+  20:	eb000012 	bl	0x70
+  24:	e2844001 	add	r4, r4, #1
+  28:	e3540010 	cmp	r4, #16
+  2c:	1afffffa 	bne	0x1c
+  30:	eafffff9 	b	0x1c
+  34:	e59f0090 	ldr	r0, [pc, #144]	; 0xcc
+  38:	e3a0161e 	mov	r1, #31457280	; 0x1e00000
+  3c:	e5801000 	str	r1, [r0]
+  40:	e59f0088 	ldr	r0, [pc, #136]	; 0xd0
+  44:	e3a01000 	mov	r1, #0
+  48:	e3140001 	tst	r4, #1
+  4c:	13811602 	orrne	r1, r1, #2097152	; 0x200000
+  50:	e3140002 	tst	r4, #2
+  54:	13811501 	orrne	r1, r1, #4194304	; 0x400000
+  58:	e3140004 	tst	r4, #4
+  5c:	13811502 	orrne	r1, r1, #8388608	; 0x800000
+  60:	e3140008 	tst	r4, #8
+  64:	13811401 	orrne	r1, r1, #16777216	; 0x1000000
+  68:	e5801000 	str	r1, [r0]
+  6c:	e12fff1e 	bx	lr
+  70:	e3a0280a 	mov	r2, #655360	; 0xa0000
+  74:	e2522001 	subs	r2, r2, #1
+  78:	1afffffd 	bne	0x74
+  7c:	e12fff1e 	bx	lr
+  80:	e59f004c 	ldr	r0, [pc, #76]	; 0xd4
+  84:	e5901000 	ldr	r1, [r0]
+  88:	e3c1161e 	bic	r1, r1, #31457280	; 0x1e00000
+  8c:	e5801000 	str	r1, [r0]
+  90:	e12fff1e 	bx	lr
+  94:	e92d4003 	push	{r0, r1, lr}
+  98:	e59f0038 	ldr	r0, [pc, #56]	; 0xd8
+  9c:	e59f1038 	ldr	r1, [pc, #56]	; 0xdc
+  a0:	e5801048 	str	r1, [r0, #72]	; 0x48
+  a4:	eb000003 	bl	0xb8
+  a8:	e59f1030 	ldr	r1, [pc, #48]	; 0xe0
+  ac:	e5801048 	str	r1, [r0, #72]	; 0x48
+  b0:	eb000000 	bl	0xb8
+  b4:	e8bd8003 	pop	{r0, r1, pc}
+  b8:	e5902034 	ldr	r2, [r0, #52]	; 0x34
+  bc:	e2022010 	and	r2, r2, #16
+  c0:	e3520000 	cmp	r2, #0
+  c4:	1afffffb 	bne	0xb8
+  c8:	e12fff1e 	bx	lr
+  cc:	4804c190 	stmdami	r4, {r4, r7, r8, lr, pc}
+  d0:	4804c194 	stmdami	r4, {r2, r4, r7, r8, lr, pc}
+  d4:	00000000 	andeq	r0, r0, r0
+  d8:	44e35000 	strbtmi	r5, [r3], #0
+  dc:	0000aaaa 	andeq	sl, r0, sl, lsr #21
+  e0:	00005555 	andeq	r5, r0, r5, asr r5

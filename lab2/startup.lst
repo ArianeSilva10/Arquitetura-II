@@ -1,0 +1,72 @@
+
+bin/startup.bin:     file format binary
+
+
+Disassembly of section .data:
+
+00000000 <.data>:
+   0:	e10f0000 	mrs	r0, CPSR
+   4:	e3c0001f 	bic	r0, r0, #31
+   8:	e3800013 	orr	r0, r0, #19
+   c:	e38000c0 	orr	r0, r0, #192	; 0xc0
+  10:	e129f000 	msr	CPSR_fc, r0
+  14:	eb000019 	bl	0x80
+  18:	eb000022 	bl	0xa8
+  1c:	eb000002 	bl	0x2c
+  20:	0a000007 	beq	0x44
+  24:	1a00000b 	bne	0x58
+  28:	ebfffffb 	bl	0x1c
+  2c:	e59f00ac 	ldr	r0, [pc, #172]	; 0xe0
+  30:	e5902000 	ldr	r2, [r0]
+  34:	e3120801 	tst	r2, #65536	; 0x10000
+  38:	03a00000 	moveq	r0, #0
+  3c:	13a00001 	movne	r0, #1
+  40:	e12fff1e 	bx	lr
+  44:	e3a01a01 	mov	r1, #4096	; 0x1000
+  48:	e59f0094 	ldr	r0, [pc, #148]	; 0xe4
+  4c:	e5801000 	str	r1, [r0]
+  50:	eb000005 	bl	0x6c
+  54:	ebfffff0 	bl	0x1c
+  58:	e3a01a01 	mov	r1, #4096	; 0x1000
+  5c:	e59f0084 	ldr	r0, [pc, #132]	; 0xe8
+  60:	e5801000 	str	r1, [r0]
+  64:	eb000000 	bl	0x6c
+  68:	ebffffeb 	bl	0x1c
+  6c:	e3a0160a 	mov	r1, #10485760	; 0xa00000
+  70:	e2411001 	sub	r1, r1, #1
+  74:	e3510000 	cmp	r1, #0
+  78:	1afffffc 	bne	0x70
+  7c:	e12fff1e 	bx	lr
+  80:	e59f0064 	ldr	r0, [pc, #100]	; 0xec
+  84:	e59f1064 	ldr	r1, [pc, #100]	; 0xf0
+  88:	e5801000 	str	r1, [r0]
+  8c:	e59f0060 	ldr	r0, [pc, #96]	; 0xf4
+  90:	e5901000 	ldr	r1, [r0]
+  94:	e3c11a01 	bic	r1, r1, #4096	; 0x1000
+  98:	e3833020 	orr	r3, r3, #32
+  9c:	e3811801 	orr	r1, r1, #65536	; 0x10000
+  a0:	e5801000 	str	r1, [r0]
+  a4:	e12fff1e 	bx	lr
+  a8:	e92d4003 	push	{r0, r1, lr}
+  ac:	e59f0044 	ldr	r0, [pc, #68]	; 0xf8
+  b0:	e59f1044 	ldr	r1, [pc, #68]	; 0xfc
+  b4:	e5801048 	str	r1, [r0, #72]	; 0x48
+  b8:	eb000003 	bl	0xcc
+  bc:	e59f103c 	ldr	r1, [pc, #60]	; 0x100
+  c0:	e5801048 	str	r1, [r0, #72]	; 0x48
+  c4:	eb000000 	bl	0xcc
+  c8:	e8bd8003 	pop	{r0, r1, pc}
+  cc:	e5902034 	ldr	r2, [r0, #52]	; 0x34
+  d0:	e2022010 	and	r2, r2, #16
+  d4:	e3520000 	cmp	r2, #0
+  d8:	1afffffb 	bne	0xcc
+  dc:	e12fff1e 	bx	lr
+  e0:	4804c138 	stmdami	r4, {r3, r4, r5, r8, lr, pc}
+  e4:	4804c194 	stmdami	r4, {r2, r4, r7, r8, lr, pc}
+  e8:	4804c190 	stmdami	r4, {r4, r7, r8, lr, pc}
+  ec:	44e000ac 	strbtmi	r0, [r0], #172	; 0xac
+  f0:	00040002 	andeq	r0, r4, r2
+  f4:	4804c134 	stmdami	r4, {r2, r4, r5, r8, lr, pc}
+  f8:	44e35000 	strbtmi	r5, [r3], #0
+  fc:	0000aaaa 	andeq	sl, r0, sl, lsr #21
+ 100:	00005555 	andeq	r5, r0, r5, asr r5
